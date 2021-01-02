@@ -26,7 +26,7 @@
     ![2b](./Images/2b.png)
     
 3. Swagger
-    * Swagger helps in designing and consuming an API. ```swagger.sh``` will download the latest swagger container and run it on port 80. ```serve.py```  will start a Python server on port 9000.
+    * Swagger helps in designing and consuming an API. ```swagger.sh``` will download the latest swagger container and run it on port 9000. ```serve.py```  will start a Python server.
     
     ![3a](./Images/3a.png)
     
