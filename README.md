@@ -37,9 +37,35 @@
     
 5. Pipeline
     * This pipeline automates the entire process and saves a lot of time. Publishing this pipeline creates a REST Endpoint which can be triggered via a HTTP request.
+    
+    * Pipeline Run
+    ![5aa](./Images/5aa.png)
+    
+    * Published Pipeline endpoint
+    ![5bb](./Images/5bb.png)
+    
+    * AutoML
+    ![5cc](./Images/5cc.png)
+    
+    * Pipeline Overview
+    ![5dd](./Images/5dd.png)
+    
+    * Run Details
+    ![5ee](./Images/5ee.png)
+    
+    * Run using Pipeline Endpoint
+    ![5ffa](./Images/5ffa.png)
+    
+    ![5ffb](./Images/5ffb.png)
 
 ## Screen Recording
-*TODO* Provide a link to a screen recording of the project in action. Remember that the screencast should demonstrate:
+* [Screencast](https://youtu.be/QDYTmJUNqr0)
 
-## Standout Suggestions
-*TODO (Optional):* This is where you can provide information about any standout suggestions that you have attempted.
+## Future Work
+* Deploying using AKS instead of ACI to leverage the full potential of containers offered by AKS.
+
+* Benchmarking the endpoint using ApacheBench to measure the performance of the endpoint.
+
+* Increasing the accuracy of the model by tinkering the parameters of AutoML and making the dataset balanced using SMOTE or other techniques.
+
+* Creating a webpage to use the API easily.
