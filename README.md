@@ -1,6 +1,6 @@
 # Operationalizing Machine Learning
 
-* This project is part of the Udacity Azure ML Nanodegree. In this project, using Azure ML, a machine learing model is created using AutoML, deployed with Azure Container Instance(ACI) and consumed. A pipeline is created and published which can be used whenever the whole process needs to repeated.
+* This project is part of the Udacity Azure ML Nanodegree. In this project,a machine learing model is created using Azure AutoML, the best model is deployed with Azure Container Instance(ACI) and consumed at a REST endpoint using a http request. A pipeline is created and published as a REST endpoint which can be accessed using a http request whenever the AutoML process needs to be repeated.
 
 * The dataset named 'Bank marketing dataset' contains data about a Telemarketing strategy implemented by a bank. The aim is to predict if a client would subscribe to a term deposit.
 
