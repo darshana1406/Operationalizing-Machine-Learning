@@ -10,33 +10,46 @@
 
 ## Key Steps
 1. Creating a model
-    * An AutoML run is created using the Bank Marketing Dataset and the best model produced is deployed.
-    
+    * Bank marketing dataset is aquired from the url and registered as a Tabular dataset.
     ![1a](./Images/1a.png)
     
+    * A compute cluster with a maximum of 6 nodes called 'bm-compute' is created.
+    * An AutoML experiment under the name 'bm-exp1' is performed with Bank marketing dataset. The primary metric which will be optimized in the experiment is Accuracy.
     ![1b](./Images/1b.png)
     
+    * The best model is Voting Ensemble with an accuarcy around 92%. This model is deployed as 'bm-best-model' using Azure Container Instance(ACI).
     ![1c](./Images/1c.png)
  
 2. Enabling Application Insights/Logging
-    * Logs are used to monitor and detect problems in applications. Azure Python SDK is used to run ```logs.py``` which enables logging for the deployed model.
-    
+    * Logs are used to monitor and detect problems in applications. Running ```logs.py``` enables logging for the deployed model. In the screenshot below "Application Insights enabled" is True.
     ![2a](./Images/2a.png)
     
+    * Logs from the deployed model.
     ![2b](./Images/2b.png)
     
 3. Swagger
-    * Swagger helps in designing and consuming an API. ```swagger.sh``` will download the latest swagger container and run it on port 9000. ```serve.py```  will start a Python server.
+    * Swagger helps in designing and consuming an API. swagger.sh will download the latest swagger container and run it on port 9000. "http:\\localhost:9000" will display the Swagger UI. 
+    * `swagger.json` which is provided by Azure for all deployed models is downloaded. `serve.py` will start a Python server on port 8000. Looking it up on swagger will show the input, output and other information of the API.
     
     ![3a](./Images/3a.png)
     
 4. Consuming Model Endpoint
-    * ```endpoint.py``` contains two sets of inputs in the form of JSON. This input will be fed to the deployed model and the result will also be obtained in the form of JSON.
+    * `endpoint.py` contains two sets of inputs in the form of JSON. This input will be fed to the deployed model at the scoring uri using the api and the result will also be obtained in the form of JSON.
     
     ![4a](./Images/4a.png)
     
 5. Pipeline
-    * This pipeline automates the entire process and saves a lot of time. Publishing this pipeline creates a REST Endpoint which can be triggered via a HTTP request.
+    * This pipeline automates the AutoML process and saves a lot of time. Publishing this pipeline creates a REST Endpoint which can be triggered via a HTTP request.
+    
+    1. Previously created compute cluster is attached to the same experiment 'bm-exp1' in workspace.
+    
+    2. Bank marketing dataset is loaded in a Tabular Dataset.
+    
+    3. AutoML run is configured using an `AutoMLConfig` object and outputs are defined using `TrainingOutput`. An AutoML step is created.
+    
+    4. A pipeline object is created with AutoML step and submitted.
+    
+    5. Finally the pipeline is publisehed and an endpoint is created. The pipeline can be run when required using a http request. 
     
     * Pipeline Run
     ![5aa](./Images/5aa.png)
@@ -55,7 +68,6 @@
     
     * Run using Pipeline Endpoint
     ![5ffa](./Images/5ffa.png)
-    
     ![5ffb](./Images/5ffb.png)
 
 ## Screen Recording
